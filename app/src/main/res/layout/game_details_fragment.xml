@@ -4,12 +4,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <import type="rs.ac.ni.pmf.scoretracker.model.Game.Team"/>
+        <import type="android.view.View"/>
         <variable
             name="game"
             type="rs.ac.ni.pmf.scoretracker.model.Game" />
     </data>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:visibility="@{game != null ? View.GONE : View.VISIBLE}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Please select a game"
+            />
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:visibility="@{game != null ? View.VISIBLE : View.GONE}"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".fragment.GameDetailsFragment">
@@ -165,9 +178,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/portrait_verical_guide"/>
 
-
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+
 
 </layout>
